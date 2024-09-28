@@ -1,0 +1,99 @@
+<html></html>
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .alert-box {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .alert-box h2 {
+            margin: 0;
+            font-size: 24px;
+            color: black;
+        }
+        .alert-box p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: black;
+        }
+        .button {
+            display: block;
+            width: 100px;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background-color: #00bfff;
+            font-size: 16px;
+        }
+        .button.close {
+            background-color: transparent;
+            color: #00bfff;
+        }
+    </style>
+</head>
+<body>
+    <div class="alert-box">
+        <h2>Alert</h2>
+        <p>RegistrationID-00019202107493 Name-Arti Bohat</p>
+        <p>DOB-07-06-1990 Registration Date-20-01-2021</p>
+        <p>Registration End Date-Dec-2025</p>
+        <a href="#" class="button" id="copy-btn">Copy</a>
+        <a href="#" class="button close" id="close-btn">Close</a>
+    </div>
+
+    <script>
+        // Get the alert box element
+        const alertBox = document.querySelector('.alert-box');
+
+        // Get the copy button element
+        const copyBtn = document.getElementById('copy-btn');
+
+        // Get the close button element
+        const closeBtn = document.getElementById('close-btn');
+
+        // Add event listener to the copy button
+        copyBtn.addEventListener('click', () => {
+            // Get the text content of the alert box
+            const text = alertBox.textContent;
+
+            // Create a textarea element
+            const textarea = document.createElement('textarea');
+
+            // Set the text content of the textarea
+            textarea.value = text;
+
+            // Add the textarea to the body
+            document.body.appendChild(textarea);
+
+            // Select the text in the textarea
+            textarea.select();
+
+            // Copy the text to the clipboard
+            document.execCommand('copy');
+
+            // Remove the textarea from the body
+            document.body.removeChild(textarea);
+        });
+
+        // Add event listener to the close button
+        closeBtn.addEventListener('click', () => {
+            // Hide the alert box
+            alertBox.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
